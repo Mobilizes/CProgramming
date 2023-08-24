@@ -35,3 +35,21 @@ int main()
 2. Watch out for edge cases
 3. Do it in first try
 */
+
+/*
+Deskripsi
+Anda sedang dalam petualangan menjadi coder terbaik, like no one ever was. Dalam rute yang anda tempuh, terdapat N warung internet tempat anda bisa menimba ilmu. Tentunya, untuk setiap warung internet, Anda bisa memutuskan untuk mengunjunginya atau tidak. Namun, karena ingin petualangan Anda tidak sia-sia, anda ingin agar anda mengunjungi setidaknya 1 warung internet. Namun, sekarang Anda penasaran, ada berapa cara memilih warung internet yang akan dikunjungi? Karena banyaknya cara bisa sangat besar, Anda memutuskan untuk menghitungnya hanya dalam modulo 109+7.
+
+Format Masukan
+Satu baris berisi sebuah bilangan bulat N, banyak warung internet.
+
+Format Keluaran
+Satu baris berisi sebuah bilangan bulat, banyak cara memilih warung internet yang akan dikunjungi dalam modulo 109+7.
+
+Contoh Masukan
+3
+Contoh Keluaran
+7
+Batasan
+1 ≤ N ≤ 109
+*/

@@ -35,3 +35,24 @@ int main()
 2. Watch out for edge cases
 3. Do it in first try
 */
+
+/*
+Rama merupakan salah satu keponakan kesayangan Pak Chanek. Sayangnya, Rama memiliki kebiasaan buruk, yaitu malas mandi. Biasanya, untuk menghilangkan bau badan, Rama "mandi" dengan menggunakan parfum (jangan ditiru!). Karena ia malas mandi, ia juga malas mengganti bajunya. Masalahnya, jika ia tidak mengganti bajunya, maka orang-orang akan sadar dan nama baiknya akan hancur. Oleh karena itu, terkadang ia mengganti bajunya, dengan probabilitas mengganti baju untuk setiap harinya adalah X. Jika hari ini adalah tanggal ganjil, berapakah kemungkinan Rama mengganti baju untuk pertama kalinya di hari dengan tanggal ganjil?
+
+ 
+
+Asumsikan bahwa tidak ada pergantian bulan, sehingga tanggal pasti terus menerus bergantian ganjil-genap-ganjil-genap dan seterusnya.
+
+Format Masukan
+Satu baris berisi sebuah bilangan bulat P, yang menandakan bahwa X atau probabilitas Rama mengganti baju adalah P/100.
+
+Format Keluaran
+Satu baris berisi sebuah bilangan nyata, kemungkinan Rama mengganti bajunya untuk pertama kali di tanggal ganjil. Jawaban dianggap benar jika kesalahan absolut atau kesalahan relatif tidak melebihi 10-6.
+
+Contoh Masukan
+50
+Contoh Keluaran
+0.666666667
+Batasan
+0 ≤ P ≤ 100
+*/

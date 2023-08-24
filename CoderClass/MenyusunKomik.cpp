@@ -52,3 +52,30 @@ int main()
 2. Watch out for edge cases
 3. Do it in first try
 */
+
+/*
+Deskripsi
+Anda baru saja pulang berlibur dari Pulau CompFest. Sesampainya di rumah, anda mendapati bahwa rumah anda kemasukan maling! Anehnya, maling tersebut hanya mengincar beberapa buku di lemari buku anda. Akibat tingkah pencuri tersebut, beberapa buku di lemari anda posisinya menjadi teracak. Akhirnya, anda memutuskan untuk mengurutkan buku-buku anda. Sekarang, anda ingin mengurutkan komik favorit anda yaitu Naturo. Sampai detik ini, anda memiliki N jilid komik Naturo. Dalam mengurutkan, anda dapat menukar posisi 2 komik dalam satu detik. Diberikan susunan komik saat ini, berapa waktu minimal yang dibutuhkan untuk mengurutkan komik-komik Naturo anda secara menaik?
+
+Format Masukan
+Baris pertama berisi sebuah bilangan bulat N, banyaknya komik yang ingin diurutkan.
+
+Baris kedua berisi N buah bilangan bulat, dengan bilangan ke-i merupakan nomor jilid yang berada di posisi ke-i.
+
+Format Keluaran
+Satu baris berisi sebuah bilangan bulat, waktu minimal yang dibutuhkan untuk mengurutkan komik secara menaik.
+
+Contoh Masukan
+4
+3 1 2 4
+Contoh Keluaran
+2
+Penjelasan
+Salah satu cara yang membutuhkan dua langkah adalah:
+
+Tukar buku posisi 2 dan 3. Sekarang, urutannya 3 2 1 4.
+Tukar buku posisi 1 dan 3. Sekarang, urutannya 1 2 3 4.
+Batasan
+1 ≤ N ≤ 1.000
+Dijamin nomor-nomor jilid yang diberikan adalah 1..N, dan unik.
+*/

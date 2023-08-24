@@ -40,3 +40,28 @@ int main()
 3. Do it in first try
 */
 
+/*
+Deskripsi
+Apakah kalian masih ingat dengan PR Budi beberapa waktu yang lalu? Pada PR tersebut, Budi mendapat tiga bilangan bulat, N, A, dan B, dan harus menuliskan secara terurut menaik, semua bilangan bulat positif yang habis dibagi oleh A atau B dan tidak lebih besar dari N. Kali ini, anda justru tertarik dengan hal yang berbeda.
+
+ 
+
+Anda memiliki tiga bilangan bulat, N, A, dan B. Seandainya anda menulis semua bilangan bulat positif yang habis dibagi A atau B, setelah diurutkan, berapakah bilangan yang berada di urutan ke-N pada barisan itu?
+
+Format Masukan
+Satu baris berisi tiga buah bilangan bulat N, A, dan B.
+
+Format Keluaran
+Satu baris berisi sebuah bilangan bulat, bilangan pada urutan ke-N.
+
+Contoh Masukan
+6 3 4
+Contoh Keluaran
+12
+Penjelasan
+Barisan bilangan yang akan terbentuk adalah 3, 4, 6, 8, 9, 12, 15, 16,... . Bilangan yang berada pada urutan ke-6 adalah 12.
+
+Batasan
+1 ≤ N ≤ 109
+1 ≤ A, B ≤ 105
+*/

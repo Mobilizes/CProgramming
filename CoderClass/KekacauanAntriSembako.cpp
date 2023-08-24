@@ -47,3 +47,36 @@ int main()
 2. Watch out for edge cases
 3. Do it in first try
 */
+
+/*
+Deskripsi
+Bekerja sama seringkali mempercepat pekerjaan, akan tetapi, terkadang yang terjadi justru sebaliknya jika kerja sama tidak berjalan dengan baik.
+
+Pada antri sembako yang lalu, hanya terdapat satu petugas yang mengatur antrian. Menjelang siang hari, datang satu petugas baru, yang juga ingin ikut memerintah. Namun, yang terjadi justru kekacauan, karena persepsi depan dan belakang kedua petugas ini berlawanan! Untuk kali ini, anda memandang dari sudut pandang petugas pertama. Akibat datangnya petugas kedua, sekarang terdapat 4 jenis perintah, yang dapat dikodekan sebagai berikut:
+
+1 nama, berarti orang dengan nama tersebut masuk di depan antrian.
+2 nama, berarti orang dengan nama tersebut masuk di belakang antrian.
+3, berarti orang yang berada di depan antrian keluar.
+4, berarti orang yang berada di belakang antrian keluar.
+Untuk setiap operasi 3 dan 4, nama orang tersebut akan dicatat (agar tidak dapat mengambil sembako berkali-kali). Apa isi catatan petugas sembako?
+
+Format Masukan
+Baris pertama berisi sebuah bilangan bulat Q, banyak perintah.
+
+Q baris selanjutnya berisi perintah, sesuai deskripsi soal.
+
+Format Keluaran
+Untuk setiap perintah 3 dan 4, keluarkan nama orang yang keluar dari antrian.
+
+Contoh Masukan
+3
+1 chanek
+2 dengklek
+4
+Contoh Keluaran
+dengklek
+Batasan
+1 ≤ Q ≤ 10.000
+Panjang nama tidak akan melebihi 10 karakter, dan hanya akan terdiri dari karakter 'a' sampai 'z'.
+Dijamin antrian tidak kosong saat dilakukan perintah 3 dan 4.
+*/

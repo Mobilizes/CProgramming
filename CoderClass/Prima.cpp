@@ -41,3 +41,27 @@ int main()
 2. Watch out for edge cases
 3. Do it in first try
 */
+
+/*
+Deskripsi
+Tahukah kalian tentang bilangan prima? Bilangan prima adalah bilangan yang hanya memiliki 2 faktor pembagi, yaitu 1 dan dirinya sendiri (1 bukan bilangan prima).
+
+Kali ini, diberikan N dan K, keluarkan bilangan prima ke-1, K+1, 2*K+1, ..., (N-1)*K + 1.
+
+Format Masukan
+Satu baris berisi 2 buah bilangan bulat N dan K.
+
+Format Keluaran
+N baris, baris ke-i berisi bilangan prima ke-(i-1)*K+1.
+
+Contoh Masukan
+4 2
+Contoh Keluaran
+2
+5
+11
+17
+Batasan
+1 ≤ N, K ≤ 50.000
+1 ≤ (N-1)*K + 1 ≤ 50.000
+*/

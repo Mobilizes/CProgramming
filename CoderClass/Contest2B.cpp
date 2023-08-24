@@ -48,26 +48,41 @@ int main()
 */
 
 /*
-14
-1 3 5 5
-*/
+Deskripsi
+Akhir-akhir ini Pak Chanek sering menggunakan aplikasi ojek daring Go-Terra.
 
-/*
-24
-2 2 1 1 1 1 1 5 5 5
-*/
+Pada aplikasi ini, Pak Chanek selalu memberikan rating berupa bintang kepada para ojek yang telah membantunya. Banyak bintang yang dapat diberikan kepada setiap ojek daring berkisar pada rentang 1 sampai 5 inklusif.
 
-/*
-22
-1 1 1 1 1 1 1 5 5 5
-*/
+Pak Chanek membuka aplikasi ojek daring tersebut dan kemudian melihat bahwa dia telah memberikan N buah bintang kepada M ojek daring.
 
-/*
-35
-2 1 1 1 5 5 5 5 5 5
-*/
+Sekarang Pak Chanek penasaran berapa nilai minimum dan maksimum dari banyaknya ojek daring yang mendapatkan 5 bintang. Bantulah Pak Chanek untuk menghilangkan rasa penasarannya atau cetak 
+−
+1
+−1
+ 
+−
+1
+−1
+ apabila hal tersebut mustahil!
 
-/*
-40
-1 1 1 1 2 1 1 1 1 5 5 5 5 5 5
+Format Masukan
+N M
+Format Keluaran
+Keluarkan nilai minimum dan maksimum dalam satu baris sesuai deskripsi atau cetak "-1 -1" apabila hal tersebut mustahil.
+
+Contoh Masukan 1
+14 4
+Contoh Keluaran 1
+0 2
+Contoh Masukan 2
+100 1
+Contoh Keluaran 2
+-1 -1
+Penjelasan
+Pada contoh masukan 1, Pak Chanek bisa saja memberikan 2 bintang kepada salah satu ojek daring dan memberikan masing-masing 4 bintang kepada ojek daring lainnya sehingga tidak ada ojek daring yang mendapatkan 5 bintang. Pak Chanek juga bisa memberikan 2 bintang kepada 2 orang ojek daring dan memberikan masing-masing 5 bintang kepada ojek daring lainnya sehingga terdapat 2 ojek daring yang mendapatkan 5 bintang.
+
+Pada contoh masukan 2, Pak Chanek tidak mungkin memberikan 100 bintang hanya kepada seorang ojek daring.
+
+Batasan
+1 ≤ N, M ≤ 1015
 */
