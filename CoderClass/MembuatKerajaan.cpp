@@ -16,30 +16,29 @@ using namespace std;
 #define el '\n'
 
 
-vector<vector<ll>> arr(105, vector<ll>(105, 0));
+vector<vector<int>> arr(105, vector<int>(105, 0));
 
 int main()
 {
     Mob;
     int r, c; cin >> r >> c;
-    ll res = -INTMAX;
+    int res = -INTMAX;
+    for(int i=1; i<=r; i++) for(int j=1; j<=c; j++){
+        cin >> arr[i][j]; 
+        arr[i][j] += arr[i-1][j];
+    };
     for(int i=1; i<=r; i++){
-        for(int j=1; j<=c; j++){
-            cin >> arr[i][j];
-            arr[i][j] += arr[i-1][j] + arr[i][j-1] - arr[i-1][j-1];
+        for(int j=i; j<=r; j++){
+            int temp = 0;
+            for(int k=1; k<=c; k++){
+                int v = arr[j][k] - arr[i-1][k];
+                temp = max(temp+v, v);
+                res = max(temp, res);
+                // rupanya kadane's algorithm bangs-
+            }
         }
     }
-    for(int i=1; i<=r; i++){
-        for(int j=1; j<=c; j++){
-            
-        }
-    }
-    for(int i=1; i<=r; i++){
-        for(int j=1; j<=c; j++){
-            cout << arr[i][j] << ' ';
-        }
-        cout << el;
-    }
+    cout << res << el;
     return 0;
 }
 
