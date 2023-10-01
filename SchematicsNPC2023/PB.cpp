@@ -16,25 +16,24 @@ using namespace std;
 #define el '\n'
 
 
-vector<vector<int>> dp(10005, vector<int>(10005, 0));
-string a, b;
+vector<double> arr(55, 0);
+int n;
 
+double rec(int idx, int i){
+    if(i==1000) return 0;
+    if(idx==n) return rec(0, i);
+    return arr[idx] + 1/rec(idx+1, i+1);
+}
 
 int main()
 {
     Mob;
-    cin >> a >> b;
-    int n = int(a.size());
-    int m = int(b.size());
-    for(int i=0; i<=n; i++){
-        for(int j=0; j<=m; j++){
-            if(i==0) dp[i][j] = j;
-            else if(j==0) dp[i][j] = i;
-            else if(a[i-1]==b[j-1]) dp[i][j] = dp[i-1][j-1];
-            else dp[i][j] = 1 + min({dp[i-1][j], dp[i][j-1], dp[i-1][j-1]});
-        }
+    tcs(){
+        cin >> n;
+        for(int i=0; i<n; i++) cin >> arr[i];
+        double res = rec(0, 0);
+        cout << setprecision(7) << res << el;
     }
-    cout << dp[n][m] << el;
     return 0;
 }
 

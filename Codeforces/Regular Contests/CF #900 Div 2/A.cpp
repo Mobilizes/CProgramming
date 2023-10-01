@@ -4,7 +4,7 @@ typedef long long ll;
 
 using namespace std;
 
-#define Mob ios_base::sync_with_stdio(false)
+#define Mob ios_base::sync_with_stdio(false); cin.tie(NULL);
 #define lcm(a, b) (a*b / __gcd(a, b))
 #define tcs() int testcase; cin >> testcase; while(testcase--)
 #define INTMAX (int)(1e9)
@@ -16,25 +16,21 @@ using namespace std;
 #define el '\n'
 
 
-vector<vector<int>> dp(10005, vector<int>(10005, 0));
-string a, b;
-
-
 int main()
 {
     Mob;
-    cin >> a >> b;
-    int n = int(a.size());
-    int m = int(b.size());
-    for(int i=0; i<=n; i++){
-        for(int j=0; j<=m; j++){
-            if(i==0) dp[i][j] = j;
-            else if(j==0) dp[i][j] = i;
-            else if(a[i-1]==b[j-1]) dp[i][j] = dp[i-1][j-1];
-            else dp[i][j] = 1 + min({dp[i-1][j], dp[i][j-1], dp[i-1][j-1]});
+    tcs(){
+        int n; cin >> n;
+        int a[101]; for(int i=0; i<n; i++) cin >> a[i];
+        int b[101];
+        b[0] = 1;
+        if(a[0]==1) b[0] = 2;
+        for(int i=1; i<n; i++){
+            if(b[i-1]+1==a[i]) b[i] = b[i-1] + 2;
+            else b[i] = b[i-1]+1;
         }
+        cout << el << b[n-1] << el;
     }
-    cout << dp[n][m] << el;
     return 0;
 }
 
