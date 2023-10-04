@@ -4,39 +4,29 @@ typedef long long ll;
 
 using namespace std;
 
-#define Mob ios_base::sync_with_stdio(false)
+#define Mob ios_base::sync_with_stdio(false); cin.tie(NULL);
 #define lcm(a, b) (a*b / __gcd(a, b))
-#define testcases(t) while(t--)
-#define INTinf (int)(1e9)
-#define LLinf (ll)(1e18)
+#define tcs() int testcase; cin >> testcase; while(testcase--)
+#define INTMAX (int)(1e9)
+#define LLMAX (ll)(1e18)
 #define mod int(1e9+7)
 #define pymod(a,b) ((b + (a%b)) % b)
+#define fi first
+#define se second
+#define el '\n'
 
-bool exist = false;
-unordered_map<string, vector<string>> rlt;
-unordered_map<string, bool> visited;
-vector<string> res;
+string a, b;
+unordered_map<string, vector<string>> down;
+vector<string> path, ans;
 
-void dfs(string a, string b){
-    stack<string> st;
-    st.push(b);
-    res.push_back(b);
-    visited[b] = true;
-    while(!st.empty()){
-        string curr = st.top();
-        st.pop();
-        if(curr==a){
-            exist = true;
-            for(int i=res.size()-1; i>=0; i--) cout << res[i] << endl;
-            return;
-        }
-        for(int i=0; i<rlt[curr].size(); i++){
-            if(!visited[rlt[curr][i]]){
-                st.push(rlt[curr][i]);
-                res.push_back(rlt[curr][i]);
-                visited[rlt[curr][i]] = true;
-            }
-        }
+void dfs(string s){
+    for(auto i : down[s]){
+        path.push_back(i);
+        dfs(i);
+        path.pop_back();
+    }
+    if(((path.front()==a and path.back()==b) || (path.front()==b and path.back()==a)) and ans.empty()){
+        for(auto i : path) ans.push_back(i);
     }
 }
 
@@ -44,15 +34,23 @@ int main()
 {
     Mob;
     int n, m; cin >> n >> m;
-    string a, b;
     for(int i=0; i<m; i++){
         cin >> a >> b;
-        rlt[b].push_back(a);
+        down[a].push_back(b);
     }
     cin >> a >> b;
-    dfs(a, b);
-    if(!exist){
-        cout << "TIDAK MUNGKIN" << endl;
-    }
+    path.push_back(a);
+    dfs(a);
+    path.clear();
+    path.push_back(b);
+    dfs(b);
+    if(ans.empty()) cout << "TIDAK MUNGKIN" << el;
+    else for(auto i : ans) cout << i << el;
     return 0;
 }
+
+/*
+1. Watch out for integer overflow (Look at the constraints first)
+2. Watch out for edge cases
+3. Do it in first try
+*/
