@@ -36,16 +36,16 @@ int main(){
         black[i] += black[i-1];
     }
     dp[0][0] = 0;
-    dp[1][0] = 0;
+    dp[0][0] = 0;
     for(int i=1; i<=m; i++){
-        dp[0][i] = INTMAX;
-        for(int a=x; a<=y; a++) dp[0][i] = min(dp[0][i], dp[0][i-a] + white[i] - white[i-a]);
-        dp[1][i] = INTMAX;
-        for(int a=x; a<=y; a++) dp[1][i] = min(dp[1][i], dp[1][i-a] + black[i] - black[i-a]);
-    }
-    for(int i=0; i<2; i++){
-        for(int j=0; j<=m; j++) cout << dp[i][j] << ' ';
-        cout << el;
+        dp[0][i] = 1e9;
+        dp[1][i] = 1e9;
+        for(int j=x; j<=y; j++){
+            if(i-j>=0){
+                dp[1][i] = min(dp[1][i], dp[0][i-j] + white[i] - white[i-j]);
+                dp[0][i] = min(dp[0][i], dp[1][i-j] + black[i] - black[i-j]);
+            }
+        }
     }
     cout << min(dp[0][m], dp[1][m]) << el;
     return 0;
@@ -55,4 +55,38 @@ int main(){
 1. Watch out for integer overflow (Look at the constraints first)
 2. Watch out for edge cases
 3. Do it in first try
+*/
+
+/*
+0 2 3 5 9 13 
+0 4 9 13 15 17 
+0+2-0=2
+0+4-0=4
+0 2 0 0 0 0 
+0 4 0 0 0 0 
+4+3-2=5
+2+9-4=7
+0+3-0=3
+0+9-0=9
+0 2 3 0 0 0 
+0 4 7 0 0 0 
+7+5-3=9
+3+13-9=7
+4+5-2=7
+2+13-4=11
+0 2 3 7 0 0 
+0 4 7 7 0 0 
+7+9-5=11
+7+15-13=9
+7+9-3=13
+3+15-9=9
+0 2 3 7 11 0 
+0 4 7 7 9 0 
+9+13-9=13
+11+17-15=13
+7+13-5=15
+7+17-13=11
+0 2 3 7 11 13 
+0 4 7 7 9 11 
+11
 */
