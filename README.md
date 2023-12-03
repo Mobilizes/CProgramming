@@ -1,5 +1,3 @@
 # CProgramming
 
-My whole CompP folder.
-
-Filled with horrendous code and mostly stolen code.
+My whole CompetitiveProgramming folder.

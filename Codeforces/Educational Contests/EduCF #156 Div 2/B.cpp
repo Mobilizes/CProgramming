@@ -28,13 +28,15 @@ int main()
         cin >> px >> py;
         cin >> ax >> ay;
         cin >> bx >> by;
-        double ATouch = pyt(px-ax, py-ay) >= pyt(ax, ay) ? pyt(ax-px, ay-py) : pyt(ax, ay);
-        double BTouch = pyt(px-bx, py-by) >= pyt(bx, by) ? pyt(bx-px, by-py) : pyt(bx, by);
-        double ABTouch = pyt(ax-bx, ay-by)/2;
-        bool OT = (ABTouch >= pyt(ax, ay)) or (ABTouch >= pyt(bx, by));
-        bool PT = (ABTouch >= pyt(px-ax, py-ay)) or (ABTouch >= pyt(px-bx, py-by));
-        if(!(OT and PT)) ABTouch = (ATouch <= BTouch ? ATouch : BTouch);
-        cout << setprecision(11) << min({ABTouch, ATouch, BTouch}) << el;
+        double pa = pyt(ax-px, ay-py), oa = pyt(ax, ay);
+        double pb = pyt(bx-px, by-py), ob = pyt(bx, by);
+        double ab = pyt(ax-bx, ay-by);
+        double ans = 1e9;
+        ans = min(ans, max(pa, oa));
+        ans = min(ans, max(pb, ob));
+        ans = min(ans, max({ab/2, pa, ob}));
+        ans = min(ans, max({ab/2, pb, oa}));
+        cout << setprecision(10) << fixed << ans << el;
     }
     return 0;
 }
