@@ -79,6 +79,12 @@ int main()
 	}
 	for(int i=1; i<=dist[bx][by]; i++) cout << ans[i];
 	cout << el;
+	for(int i=0; i<n; i++){
+		for(int j=0; j<m; j++){
+			cout << path[i][j];
+		}
+		cout << el;
+	}
 	return 0;
 }
 
