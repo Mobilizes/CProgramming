@@ -32,12 +32,13 @@ bool checkwin(char c){
 int main()
 {
     Mob;
-    int n; cin >> n;
-    while(n--){
+    string s;
+    while(cin >> s){
+        if(s=="end") break;
         int x=0, o=0;
         for(int i=0; i<3; i++){
             for(int j=0; j<3; j++){
-                cin >> field[i][j];
+                field[i][j] = s[3*i+j];
                 if(field[i][j]=='X') x++;
                 if(field[i][j]=='O') o++;
             }
@@ -48,8 +49,8 @@ int main()
         if((!xwin and owin) and x==o) flag = true;
         if((!xwin and !owin) and (x==o or x==o+1)) flag = true;
 
-        if(flag) cout << "yes" << el;
-        else cout << "no" << el;
+        if(!flag) cout << "in";
+        cout << "valid\n";
     }
     return 0;
 }
