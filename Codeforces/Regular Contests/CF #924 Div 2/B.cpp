@@ -15,22 +15,16 @@ int main(int argc, char const* argv[]){
     Mob;
     tcs(){
         int n; cin >> n;
-        int arr[n+1]; for(int i=0; i<n; i++) cin >> arr[i];
-        sort(arr, arr+n);
-        for(int i=1; i<n; i++) arr[i] -= (arr[0] - 1);
-        arr[0] = 1;
-        
-        int res = 1;
-        map<int, bool> mp;
-        int low = 1;
-        int l=0, r=n-1;
-        while(l<r){
-            
+        vector<int> arr(n); for(int i=0; i<n; i++) cin >> arr[i];
+        sort(arr.begin(), arr.end());
+        arr.resize(unique(arr.begin(), arr.end()) - arr.begin());
+        int idx = 0;
+        int res = 0;
+        for(int i=0; i<arr.size(); i++){
+            while(arr[i] - arr[idx] >= n) idx++;
+            res = max(res, i-idx+1);
         }
-
-        for(int i=0; i<n; i++) cout << arr[i] << ' ';
-        cout << el;
-        // cout << res << el;
+        cout << res << el;
     }
     return 0;
 }

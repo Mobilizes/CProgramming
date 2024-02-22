@@ -5,49 +5,28 @@ typedef long long ll;
 using namespace std;
 
 #define Mob ios_base::sync_with_stdio(false); cin.tie(NULL);
-#define init(arr,n,x) for(int i=0; i<n; i++) arr[i] = x;
+#define init(arr,n,x) for(int idxdx=0; idxdx<n; idxdx++) arr[idxdx] = x;
 #define lcm(a,b) (a*b / __gcd(a, b))
-#define tcs() int testcase; cin >> testcase; while(testcase--)
-#define INTMAX (int)(1e9)
-#define LLMAX (ll)(1e18)
-#define mod int(1e9+7)
-#define pymod(a,b) ((b + (a%b)) % b)
-#define fi first
-#define se second
-#define el '\n'
+#define tcs() int testcase; cin >> testcase; for(int tecs=0; tecs<testcase; tecs++)
+#define el "\n"
 
-int m;
-vector<ll> x;
-map<pair<ll, ll>, bool> vis;
-map<pair<ll, ll>, bool> memo;
-bool flag = false;
 
-bool dp(ll i, ll sum){
-    int n = x.size();
-    if(vis[{i, sum}]) return memo[{i, sum}];
-    vis[{i, sum}] = true;
-    if(i<0) return sum==0;
-    if(sum<0) return false;
-    if(sum==0) return memo[{i, sum}] = true;
-    return memo[{i, sum}] = dp(i-1, sum) || dp(i-1, sum-x[i]);
-}
-
-int main(){
+int main(int argc, char const* argv[]){
     Mob;
-    // for(int i=0; i<100000-1; i++) cout << "1 0\n";
-    cin >> m;
-    for(int i=0; i<m; i++){
-        int n = x.size();
-        int t; cin >> t;
+    int n; cin >> n;
+    int arr[33]; init(arr,33,0);
+    for(int tsc=0; tsc<n; tsc++){
+        int t, v; cin >> t >> v;
         if(t==1){
-            ll temp; cin >> temp;
-            x.push_back(1 << temp);
+            arr[v]++;
+            continue;
         }
-        if(t==2){
-            ll w; cin >> w;
-            if(dp(n-1, w)) cout << "YES" << el;
-            else cout << "NO" << el;
+        for(int i=29; i>=0; i--){
+            int tk = min(v >> i, arr[i]);
+            v -= tk << i;
         }
+        if(v==0) cout << "YES" << el;
+        else cout << "NO" << el;
     }
     return 0;
 }

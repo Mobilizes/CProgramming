@@ -15,22 +15,20 @@ using namespace std;
 #define se second
 #define el '\n'
 
-
-double pyt(double a, double b){
-    return sqrt(a*a+b*b);
-}
-
 int main()
 {
     Mob;
     tcs(){
+        auto dist = [](double x1, double y1, double x2, double y2){
+            return hypot(x1-x2, y1-y2);
+        };
         double px, py, ax, ay, bx, by;
         cin >> px >> py;
         cin >> ax >> ay;
         cin >> bx >> by;
-        double pa = pyt(ax-px, ay-py), oa = pyt(ax, ay);
-        double pb = pyt(bx-px, by-py), ob = pyt(bx, by);
-        double ab = pyt(ax-bx, ay-by);
+        double pa = dist(px, py, ax, ay), pb = dist(px, py, bx, by);
+        double oa = dist(0, 0, ax, ay), ob = dist(0, 0, bx, by);
+        double ab = dist(ax, ay, bx, by);
         double ans = 1e9;
         ans = min(ans, max(pa, oa));
         ans = min(ans, max(pb, ob));

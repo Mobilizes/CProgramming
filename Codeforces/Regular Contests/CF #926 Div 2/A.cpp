@@ -10,37 +10,19 @@ using namespace std;
 #define tcs() int testcase; cin >> testcase; for(int tecs=0; tecs<testcase; tecs++)
 #define el "\n"
 
-int n;
-vector<int> a, b;
-vector<int> req;
-
-bool possible(int d){
-    int l = 0, r = 0;
-    for(int i=0; i<n; i++){
-        l = max(l - d, a[i]);
-        r = min(r + d, b[i]);
-        if(l>r) return false;
-    }
-    return true;
-}
-
-void solve(){
-    cin >> n;
-    a.resize(n);
-    b.resize(n);
-    for(int i=0; i<n; i++) cin >> a[i] >> b[i];
-    int l=0, r=1000000001;
-    while(l<r){
-        int m = l+(r-l)/2;
-        if(possible(m)) r = m;
-        else l = m+1;
-    }
-    cout << l << el;
-}
 
 int main(int argc, char const* argv[]){
     Mob;
-    tcs() solve();
+    tcs(){
+        int n; cin >> n;
+        int arr[n]; for(int i=0; i<n; i++) cin >> arr[i];
+        sort(arr, arr+n);
+        int sum = 0;
+        for(int i=1; i<n; i++){
+            sum += arr[i] - arr[i-1];
+        }
+        cout << sum << el;
+    }
     return 0;
 }
 

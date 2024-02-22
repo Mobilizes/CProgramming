@@ -10,32 +10,18 @@ using namespace std;
 #define tcs() int testcase; cin >> testcase; for(int tecs=0; tecs<testcase; tecs++)
 #define el "\n"
 
-int n;
-vector<int> a, b;
-vector<int> req;
-
-bool possible(int d){
-    int l = 0, r = 0;
-    for(int i=0; i<n; i++){
-        l = max(l - d, a[i]);
-        r = min(r + d, b[i]);
-        if(l>r) return false;
-    }
-    return true;
-}
-
 void solve(){
-    cin >> n;
-    a.resize(n);
-    b.resize(n);
-    for(int i=0; i<n; i++) cin >> a[i] >> b[i];
-    int l=0, r=1000000001;
-    while(l<r){
-        int m = l+(r-l)/2;
-        if(possible(m)) r = m;
-        else l = m+1;
+    int n; cin >> n;
+    char arr[n][n]; for(int i=0; i<n; i++) for(int j=0; j<n; j++) cin >> arr[i][j];
+    int res = 0;
+    for(int i=0; i<n/2; i++){
+        for(int j=i; j<n-i-1; j++){
+            char q1=arr[i][j], q2=arr[n-1-j][i], q3=arr[n-1-i][n-1-j], q4=arr[j][n-1-i];
+            char mxchar = max({q1, q2, q3, q4});
+            res += abs(q1-mxchar) + abs(q2-mxchar) + abs(q3-mxchar) + abs(q4-mxchar);
+        }
     }
-    cout << l << el;
+    cout << res << el;
 }
 
 int main(int argc, char const* argv[]){
