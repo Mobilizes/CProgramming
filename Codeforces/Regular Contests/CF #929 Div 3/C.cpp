@@ -10,20 +10,32 @@ using namespace std;
 #define tcs() int testcase; cin >> testcase; for(int tecs=0; tecs<testcase; tecs++)
 #define el "\n"
 
+ll pow1(ll x, ll y){
+    ll res = 1;
+    for(int i=0; i<y; i++) res *= x;
+    return res;
+}
+
 void solve(){
-    ll k, x, a; cin >> k >> x >> a;
-    ll t = 0;
-    bool flag = true;
-    for(ll i=0; i<x; i++){
-        ll ti = t/(k-1) + 1;
-        t += ti;
-        if(t>a){
-            flag = false;
-            break;
+    ll a, b, l; cin >> a >> b >> l;
+    if(a>b) swap(a, b);
+    ll x = 0, y = 0;
+    map<int, bool> mp;
+    int res = 0;
+    for(int i=0; i<=20; i++){
+        ll powb = pow1(b, i);
+        if(powb>l) break;
+        for(int j=0; j<=20; j++){
+            ll powa = pow1(a, j);
+            if(powa*powb > l) break;
+            int k = l / (powa * powb);
+            if(k*powa*powb == l && !mp[k]){
+                res++;
+                mp[k] = true;
+            }
         }
     }
-    if(flag && (a-t)*k > a) cout << "YES" << el;
-    else cout << "NO" << el;
+    cout << res << el;
 }
 
 int main(int argc, char const* argv[]){

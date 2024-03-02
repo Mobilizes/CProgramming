@@ -11,19 +11,30 @@ using namespace std;
 #define el "\n"
 
 void solve(){
-    ll k, x, a; cin >> k >> x >> a;
-    ll t = 0;
-    bool flag = true;
-    for(ll i=0; i<x; i++){
-        ll ti = t/(k-1) + 1;
-        t += ti;
-        if(t>a){
-            flag = false;
-            break;
+    string s; cin >> s;
+    int n = 4;
+    char c = '1';
+    int res = 0;
+    for(int i=0; i<n; i++){
+        while(c!=s[i]){
+            if(c=='0'){
+                c = '9';
+                res++;
+                continue;
+            }
+            if(s[i]=='0'){
+                c++;
+                if(c>'9') c = '0';
+                res++;
+                continue;
+            }
+            if(c<s[i]) c++;
+            else c--;
+            res++;
         }
+        res++;
     }
-    if(flag && (a-t)*k > a) cout << "YES" << el;
-    else cout << "NO" << el;
+    cout << res << el;
 }
 
 int main(int argc, char const* argv[]){

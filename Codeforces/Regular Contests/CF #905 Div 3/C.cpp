@@ -11,19 +11,9 @@ using namespace std;
 #define el "\n"
 
 void solve(){
-    ll k, x, a; cin >> k >> x >> a;
-    ll t = 0;
-    bool flag = true;
-    for(ll i=0; i<x; i++){
-        ll ti = t/(k-1) + 1;
-        t += ti;
-        if(t>a){
-            flag = false;
-            break;
-        }
-    }
-    if(flag && (a-t)*k > a) cout << "YES" << el;
-    else cout << "NO" << el;
+    int n, k; cin >> n >> k;
+    int arr[n]; for(int i=0; i<n; i++) cin >> arr[i];
+    
 }
 
 int main(int argc, char const* argv[]){
